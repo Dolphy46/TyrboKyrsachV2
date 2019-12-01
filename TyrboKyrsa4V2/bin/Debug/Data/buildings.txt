@@ -1,0 +1,9 @@
+Buldings 8
+0 data/buildings/mine_winter.png
+1 data/buildings/sawmill_winter.png
+2 data/buildings/farm_winter.png
+3 data/buildings/port_winter.png
+4 data/buildings/plant_winter.png
+5 data/buildings/windturbine_winter.png
+6 data/buildings/casern_winter.png
+7 data/buildings/laboratory_winter.png
