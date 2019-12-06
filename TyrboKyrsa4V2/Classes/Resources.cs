@@ -45,12 +45,15 @@ namespace TurboKyrsa4.Forms
 
         public int InfoResources(int x)
         {
-            int[] info = new int[5];
+            int[] info = new int[8];
             info[0] = iron;
             info[1] = wood;
             info[2] = coal;
             info[3] = uranium;
             info[4] = eat;
+            info[5] = men;
+            info[6] = tank;
+            info[7] = warhead;
 
             return info[x];
         }

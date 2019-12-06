@@ -18,7 +18,7 @@ namespace TyrboKyrsa4V2
         int[,] map;
         bool[,] playerzone;
         int moves=30;
-        private bool fport = false;
+        int task;
 
         public MapControl()
         {
@@ -52,6 +52,11 @@ namespace TyrboKyrsa4V2
             label2.Text = construction.resources.GetLabel2();
             label3.Text = construction.resources.GetLabel3();
             label4.Text = "Количество ходов: " + moves;
+        }
+
+        public void Task(int x)
+        {
+            task = x;
         }
 
         public void GenerateButtons()
@@ -150,6 +155,35 @@ namespace TyrboKyrsa4V2
             construction.Clean(b.map);
         }
 
+        private bool TaskExecution()
+        {
+            switch (task)
+            {
+                case 90:
+                    if (construction.resources.InfoRating() >= task)
+                        return true;
+                    else
+                        return false;
+                case 10:
+                    if (construction.resources.InfoRating() <= task)
+                        return true;
+                    else
+                        return false;
+                case 50000:
+                    if (construction.resources.InfoMoney() >= task)
+                        return true;
+                    else
+                        return false;
+                case 3055:
+                    if (construction.resources.InfoResources(5) >= 3000 && construction.resources.InfoResources(6) >= 50 && construction.resources.InfoResources(7) >= 5)
+                        return true;
+                    else
+                        return false;
+            }
+            return false;
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             dialogs.InfoResources(construction.resources); //каждый ход передает экзепляр класса Resources в класс Dialogs
@@ -170,58 +204,19 @@ namespace TyrboKyrsa4V2
                 if (construction.resources.numberFarm > 0)
                     construction.resources.PlusFarm();
                 moves--;
-
-                if (moves % 3 == 0) //каждые три хода - вызов функции для помощи ресурсами
-                {
-                    dialogs.HelpResources(random.Next(0, 4), random.Next(10, 20));
-                }
-
-                if (moves == 16)
-                {
-                    dialogs.ConferenceEpidemic();
-                    if (construction.resources.epidemic)
-                    {
-                        moves = moves - 2;
-                        construction.resources.SetMoney();
-                        construction.resources.SetMoney();
-                    }
-                }
-
-                if (moves == 20 || moves == 7) //20 и 7 ход - вызов функции для помощи монетами
-                {
-                    dialogs.HelpMoney(random.Next(500, 2500));
-                }
-
-                if (moves == 5)
-                {
-                    if (fport == true && construction.resources.testport == true) //наличия порта после конференции порт
-                        if (construction.resources.PortTest())
-                        {
-                            MessageBox.Show("Порт был пстроен к установленному сроку.\nВы получаете 30 быллов рейтинга.");
-                            construction.resources.Conference(true, 30);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Порт не был пocтроен к установленному сроку.\nВы теряете 30 быллов рейтинга.");
-                            construction.resources.Conference(false, 30);
-                        }
-                    dialogs.ConferenceSpy();
-                }
-
-                if (moves == 10 && construction.resources.port == false)
-                {
-                    dialogs.ConferencePort();
-                    fport = true;
-                }
-
+                dialogs.TestDualog(moves);
+                labelupdate();
             }
             else
             {
                 moves--;
-                MessageBox.Show("Конец игры.Дотвиданиня!");
+                labelupdate();
+                if (TaskExecution())
+                    MessageBox.Show("Поздравляем!!!\nВы достиглицели игры.\n Спасибо большое за игру. Дотвиданиня!");
+                else
+                    MessageBox.Show("Не расстраивайтесь!!!\nВы не достигли цели игры.\nОбызательно попробуйте пройти её ещё раз");
                 Application.Exit();
             }
-            labelupdate();
         }
     }
 }

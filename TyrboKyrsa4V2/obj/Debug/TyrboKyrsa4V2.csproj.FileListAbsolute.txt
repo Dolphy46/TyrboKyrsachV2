@@ -10,3 +10,16 @@ C:\Users\Роман\source\repos\TyrboKyrsa4V2\TyrboKyrsa4V2\obj\Debug\TyrboKyrs
 C:\Users\Роман\source\repos\TyrboKyrsa4V2\TyrboKyrsa4V2\obj\Debug\TyrboKyrsa4V2.pdb
 C:\Users\Роман\source\repos\TyrboKyrsa4V2\TyrboKyrsa4V2\obj\Debug\TyrboKyrsa4V2.MapControl.resources
 C:\Users\Роман\source\repos\TyrboKyrsa4V2\TyrboKyrsa4V2\obj\Debug\TurboKyrsa4.MainClasses.Construction.resources
+C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\bin\Debug\TyrboKyrsa4V2.exe.config
+C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\bin\Debug\TyrboKyrsa4V2.exe
+C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\bin\Debug\TyrboKyrsa4V2.pdb
+C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\obj\Debug\TyrboKyrsa4V2.csprojAssemblyReference.cache
+C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\obj\Debug\TurboKyrsa4.MainClasses.Construction.resources
+C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\obj\Debug\TyrboKyrsa4V2.Form1.resources
+C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\obj\Debug\TyrboKyrsa4V2.Forms.MENU.resources
+C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\obj\Debug\TyrboKyrsa4V2.MapControl.resources
+C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\obj\Debug\TyrboKyrsa4V2.Properties.Resources.resources
+C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\obj\Debug\TyrboKyrsa4V2.csproj.GenerateResource.cache
+C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\obj\Debug\TyrboKyrsa4V2.csproj.CoreCompileInputs.cache
+C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\obj\Debug\TyrboKyrsa4V2.exe
+C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\obj\Debug\TyrboKyrsa4V2.pdb

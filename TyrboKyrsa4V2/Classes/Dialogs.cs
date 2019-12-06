@@ -11,8 +11,10 @@ namespace TurboKyrsa4.MainClasses
     class Dialogs
     {
         Resources resources;
+        Random random = new Random();
         DialogResult res = new DialogResult();
         bool conference = false;
+        private bool fport = false;
 
         public bool InfoConference()
         {
@@ -22,6 +24,52 @@ namespace TurboKyrsa4.MainClasses
         public void InfoResources(Resources re)
         {
             resources = re;
+        }
+
+        public void TestDualog(int x)
+        {
+            if (x % 3 == 0) //каждые три хода - вызов функции для помощи ресурсами
+            {
+                HelpResources(random.Next(0, 4), random.Next(10, 20));
+            }
+
+            if (x == 16)
+            {
+                ConferenceEpidemic();
+                if (resources.epidemic)
+                {
+                    x = x - 2;
+                    resources.SetMoney();
+                    resources.SetMoney();
+                }
+            }
+
+            if (x == 20 || x == 7) //20 и 7 ход - вызов функции для помощи монетами
+            {
+                HelpMoney(random.Next(500, 2500));
+            }
+
+            if (x == 5)
+            {
+                if (fport == true && resources.testport == true) //наличия порта после конференции порт
+                    if (resources.PortTest())
+                    {
+                        MessageBox.Show("Порт был пстроен к установленному сроку.\nВы получаете 30 быллов рейтинга.");
+                        resources.Conference(true, 30);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Порт не был пocтроен к установленному сроку.\nВы теряете 30 быллов рейтинга.");
+                        resources.Conference(false, 30);
+                    }
+                ConferenceSpy();
+            }
+
+            if (x == 10 && resources.port == false)
+            {
+                ConferencePort();
+                fport = true;
+            }
         }
 
         public void Conference() //первый ход - конференция
