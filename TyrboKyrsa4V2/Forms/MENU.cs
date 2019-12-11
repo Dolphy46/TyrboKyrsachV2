@@ -22,9 +22,10 @@ namespace TyrboKyrsa4V2.Forms
 
         public void Rule()
         {
-            if (n > 0)
+            if (n < 1)
             {
-
+                Rules rule = new Rules();
+                rule.ShowDialog();
             }
             this.Close();
         }
@@ -65,6 +66,13 @@ namespace TyrboKyrsa4V2.Forms
         private void button5_Click(object sender, EventArgs e)
         {
             n = 1;
+            Rules rule = new Rules();
+            rule.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -23,3 +23,4 @@ C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Ве�
 C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\obj\Debug\TyrboKyrsa4V2.csproj.CoreCompileInputs.cache
 C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\obj\Debug\TyrboKyrsa4V2.exe
 C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\obj\Debug\TyrboKyrsa4V2.pdb
+C:\Users\Валерия\Documents\GitHub\Курсовик_3_семестр\Версия_2\TyrboKyrsachV2\TyrboKyrsa4V2\obj\Debug\TyrboKyrsa4V2.Forms.Rules.resources

@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="label2.Text" xml:space="preserve">
+    <value>     Игровое поле - карта, состоящая из ячеек, которые поделены на 4 территории(ваша страна, Дубаи, Америка, и нейтральная 
+территория). Каждая ячейка является объектом, в котором вы можете построить какое-либо здание, но только одно. 
+После постройки здание невозможно будет снести, так что следует тщательно продумывать каждый ход. Количество ячеек 
+вашей территории строго ограничено, и добавить их в игре никак нельзя. Строить вы можите только на 
+своей территории.
+</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>     С некоторыми зданиями после постройки можно будет взаимодействовать. Для этого следует 
+щелкнуть на него. Откроется окно
+в котором подробно будет указано
+что можно произвести в здании 
+(рисунок 2).</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>     После нажатия на доступную ячейку(доступной ячейкой является та, которая находиться на вашей 
+территории и на ней ничего ещё не построено) перед вами откроется окно постройки. Посредине 
+распологается картинка здания (рисунок 1). Для того чтобы построить его, вам нужно будет нажать
+на картинку. Вверху него распологается название здания. Под ним очень важная информация: сколько 
+будет стоить здание, какие ресурсы нужны для его постройки(не для всех зданий), что будет давать
+вам это здание, как здание будет влиять на рейтинг.</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>     Рейтинг и деньги - одни из самых важных ресурсов в игре. Изначально у вас будет 50 баллов рейтинга.
+Он может как увеличиваться, так  уменьшатся, в зависимости от ваших действий в игре. Рейтинг 
+показывает отношение мирового сообщества к вашей стране. Чем больше рейтинг, тем положительнее
+к вам относяться. Денежным ресурсом являються монеты. При старте вам даётся 10 000 монет. Каждый ход 
+будет начисляться 500 монет. Количество начислений можно увеличить. Для этого нужно будет щёлкнть 
+на ячейку города(рисунок 3) и достроить здания в городе, которые будут приносить дополнительные монеты.</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>     Так же в игре можно построить специальное здание для продажи и покупки ресурсов - порт 
+(рисунок 4). Щелкнув на него откроеться окно для продажи или покупки ресурсов.
+
+     Количество всех ваших ресурсы, включая рейтинг и монеты, будет отображать на игровом поле.
+В игре вы можете добывать железо, уголь, уран(шахта), древесина(лесопилка), еда(ферма), а так
+же вожможно произвести танки(завод), боеголовки(лаборатория), нанимать солдат(казарма).</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>     Вся игра будет состоять из 30 ходов, в которые вы можете строить, продавать и создавать. За это 
+время вы должны достичь ранее выбранной цели. Для того чтобы закончить ход, вам нужно будет 
+нажать на кнопку (рисунок 5), которая распологается внизу игрового поля. После окончания хода, 
+другие страны на карте сделают ходы и вы продолжите развивать свою экономику и вести политику.
+</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>     Так же в игре присутсвуют 3 вида диалогов с другими странами: конференция, помощь ресурсами, помощь монетами.
+Согласие с решением членов конфереции и помощь ресурсами или деньгами положительно повлияет на ваш рейтинг, не 
+согласие или отказав в помощи- отрицательно. Диалоги случайным образом будут появляться на протяжении всей игры.
+
+     Победить в игре, значит достичь выбранной ранее цели. </value>
+  </data>
+</root>
