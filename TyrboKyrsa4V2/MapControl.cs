@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TurboKyrsa4.MainClasses;
 using TyrboKyrsa4V2.Classes;
+using TyrboKyrsa4V2.Forms;
+using TurboKyrsa4.Forms;
 
 namespace TyrboKyrsa4V2
 {
@@ -31,9 +33,9 @@ namespace TyrboKyrsa4V2
             zm.Load();
             playerzone = zm.GetZone();
             GenerateButtons();
-            label1.Text = "Рейтинг: " + construction.resources.InfoRating().ToString() + "\nБаланс города: " + construction.resources.InfoMoney().ToString();
-            label2.Text = construction.resources.GetLabel2();
-            label3.Text = construction.resources.GetLabel3();
+            label1.Text = "Рейтинг: " + resources.InfoRating().ToString() + "\nБаланс города: " + resources.InfoMoney().ToString();
+            label2.Text = resources.GetLabel2();
+            label3.Text = resources.GetLabel3();
             label4.Text = "Количество ходов: " + moves;
         }
         
@@ -45,12 +47,16 @@ namespace TyrboKyrsa4V2
         ImageManager im = new ImageManager();
         Random random = new Random();
         Construction construction = new Construction();
+        Port port = new Port();
+        City city = new City();
+        Production production = new Production();
+        Resources resources = new Resources();
 
         void labelupdate()
         {
-            label1.Text = "Рейтинг: " + construction.resources.InfoRating().ToString() + "\nБаланс города: " + construction.resources.InfoMoney().ToString();
-            label2.Text = construction.resources.GetLabel2();
-            label3.Text = construction.resources.GetLabel3();
+            label1.Text = "Рейтинг: " + resources.InfoRating().ToString() + "\nБаланс города: " + resources.InfoMoney().ToString();
+            label2.Text = resources.GetLabel2();
+            label3.Text = resources.GetLabel3();
             label4.Text = "Количество ходов: " + moves;
         }
 
@@ -134,24 +140,45 @@ namespace TyrboKyrsa4V2
         private void but_click(object sender, EventArgs e)
         {
             SButton b = (SButton)sender;
-            if (b.build || b.map==28 || b.map == 29)
+            if (b.build || b.map==28 || b.map == 29 || b.map == 31 || b.map == 32)
             {
-                if (b.can)
-            {
-                    construction.Info(b.map);
-                    construction.ShowDialog();
-                    if (construction.GetCheck())
-                    {
-                        construction.GetBilding(b, images);
-                    }
-                    construction.SetCheck();
+                if (b.map == 28)
+                {
+                    port.GetResoures(resources);
+                    port.Info();
+                    port.ShowDialog();
                 }
                 else
-                    MessageBox.Show("Это не ваша територия!");
+                if(b.map == 1)
+                {
+                    city.GetResources(resources);
+                    city.ShowDialog();
+                }
+                else
+                    if(b.map == 31 || b.map == 32 || b.map == 29)
+                {
+                    production.GetResources(resources);
+                    production.InfoCoords(b.map);
+                    production.ShowDialog();
+                }
+                else
+                {
+                    if (b.can)
+                    {
+                        construction.GetResources(resources);
+                        construction.ShowDialog();
+                        if (construction.GetCheck())
+                        {
+                            construction.GetBilding(b, images);
+                        }
+                        construction.SetCheck();
+                    }
+                    else
+                        MessageBox.Show("Это не ваша територия!");
+                }
             }
             else
                 MessageBox.Show("Здесь уже построено здание!");
-            construction.Clean(b.map);
             labelupdate();
         }
 
@@ -160,22 +187,22 @@ namespace TyrboKyrsa4V2
             switch (task)
             {
                 case 90:
-                    if (construction.resources.InfoRating() >= task)
+                    if (resources.InfoRating() >= task)
                         return true;
                     else
                         return false;
                 case 10:
-                    if (construction.resources.InfoRating() <= task)
+                    if (resources.InfoRating() <= task)
                         return true;
                     else
                         return false;
                 case 50000:
-                    if (construction.resources.InfoMoney() >= task)
+                    if (resources.InfoMoney() >= task)
                         return true;
                     else
                         return false;
                 case 3055:
-                    if (construction.resources.InfoResources(5) >= 3000 && construction.resources.InfoResources(6) >= 50 && construction.resources.InfoResources(7) >= 5)
+                    if (resources.InfoResources(5) >= 3000 && resources.InfoResources(6) >= 50 && resources.InfoResources(7) >= 5)
                         return true;
                     else
                         return false;
@@ -186,7 +213,7 @@ namespace TyrboKyrsa4V2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dialogs.InfoResources(construction.resources); //каждый ход передает экзепляр класса Resources в класс Dialogs
+            dialogs.InfoResources(resources); //каждый ход передает экзепляр класса Resources в класс Dialogs
             if (moves == 30)
             {
                 dialogs.Conference();
@@ -196,13 +223,14 @@ namespace TyrboKyrsa4V2
 
             if (moves != 1)
             {
-                construction.resources.SetMoney();
-                if (construction.resources.numberMine > 0)
-                    construction.resources.PlusMine();
-                if (construction.resources.numberSawmill > 0)
-                    construction.resources.PlusSwamill();
-                if (construction.resources.numberFarm > 0)
-                    construction.resources.PlusFarm();
+                resources.SetMoney();
+                if (resources.numberMine > 0)
+                    resources.PlusMine();
+                if (resources.numberSawmill > 0)
+                    resources.PlusSwamill();
+                if (resources.numberFarm > 0)
+                    resources.PlusFarm();
+                labelupdate();
                 moves--;
                 dialogs.TestDualog(moves);
                 labelupdate();

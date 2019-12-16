@@ -53,6 +53,12 @@
     <Compile Include="Classes\SButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Forms\City.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\City.Designer.cs">
+      <DependentUpon>City.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Construction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,18 @@
     <Compile Include="Forms\MENU.Designer.cs">
       <DependentUpon>MENU.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Port.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Port.Designer.cs">
+      <DependentUpon>Port.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Production.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Production.Designer.cs">
+      <DependentUpon>Production.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Rules.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +105,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\City.resx">
+      <DependentUpon>City.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Construction.resx">
       <DependentUpon>Construction.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +116,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MENU.resx">
       <DependentUpon>MENU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Port.resx">
+      <DependentUpon>Port.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Production.resx">
+      <DependentUpon>Production.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rules.resx">
       <DependentUpon>Rules.cs</DependentUpon>
