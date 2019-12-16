@@ -68,9 +68,9 @@ namespace TurboKyrsa4.Forms
             return test;
         }
 
-        public void SetMoney() // каждый ход +500 монет
+        public void SetMoney() // каждый ход +1000 монет
         {
-            money = money + 500;
+            money = money + 1000;
 
             if (park > 0)
                 money = money + 10;
