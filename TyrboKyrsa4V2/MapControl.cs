@@ -134,7 +134,7 @@ namespace TyrboKyrsa4V2
         private void but_click(object sender, EventArgs e)
         {
             SButton b = (SButton)sender;
-            if (b.build)
+            if (b.build || b.map==28 || b.map == 29)
             {
                 if (b.can)
             {
@@ -143,7 +143,6 @@ namespace TyrboKyrsa4V2
                     if (construction.GetCheck())
                     {
                         construction.GetBilding(b, images);
-                        labelupdate();
                     }
                     construction.SetCheck();
                 }
@@ -153,6 +152,7 @@ namespace TyrboKyrsa4V2
             else
                 MessageBox.Show("Здесь уже построено здание!");
             construction.Clean(b.map);
+            labelupdate();
         }
 
         private bool TaskExecution()

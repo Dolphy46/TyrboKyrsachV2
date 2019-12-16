@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TurboKyrsa4.Forms;
+using TyrboKyrsa4V2;
 using TyrboKyrsa4V2.Classes;
 
 namespace TurboKyrsa4.MainClasses
