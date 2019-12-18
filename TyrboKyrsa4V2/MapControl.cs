@@ -240,7 +240,7 @@ namespace TyrboKyrsa4V2
                 moves--;
                 labelupdate();
                 if (TaskExecution())
-                    MessageBox.Show("Поздравляем!!!\nВы достиглицели игры.\n Спасибо большое за игру. Дотвиданиня!");
+                    MessageBox.Show("Поздравляем!!!\nВы достигли цели игры.\n Спасибо большое за игру. Дотвиданиня!");
                 else
                     MessageBox.Show("Не расстраивайтесь!!!\nВы не достигли цели игры.\nОбызательно попробуйте пройти её ещё раз");
                 Application.Exit();

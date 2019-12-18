@@ -57,8 +57,8 @@
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(247, 39);
             this.label24.TabIndex = 30;
-            this.label24.Text = "(Возможно построить всего один парк за игру)\r\n+10 монет каждый ход\r\nРейтинг: Нейт" +
-    "рально\r\n";
+            this.label24.Text = "(Возможно построить всего один парк за игру)\r\n+150 монет каждый ход\r\nРейтинг: Ней" +
+    "трально\r\n";
             // 
             // button2
             // 
@@ -77,8 +77,8 @@
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(294, 39);
             this.label22.TabIndex = 32;
-            this.label22.Text = "(Возможно построить всего 3 торгового центра за игру)\r\n+30 монет каждый ход\r\nРейт" +
-    "инг: Нейтрально\r\n";
+            this.label22.Text = "(Возможно построить всего 3 торгового центра за игру)\r\n+100 монет каждый ход\r\nРей" +
+    "тинг: Нейтрально\r\n";
             // 
             // button3
             // 

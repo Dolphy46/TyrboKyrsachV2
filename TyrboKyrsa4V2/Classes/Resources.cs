@@ -73,9 +73,9 @@ namespace TurboKyrsa4.Forms
             money = money + 1000;
 
             if (park > 0)
-                money = money + 10;
+                money = money + 150;
             if (shop > 0)
-                money = money + 30 * shop;
+                money = money + 100 * shop;
             if (temple > 0)
                 money = money + 300;
             if (numberWindturbine > 0)
@@ -294,49 +294,49 @@ namespace TurboKyrsa4.Forms
                 test = false;
         }
 
-        public void Buying(int x)  // Покупка и продажа ресурсов в порту
+        public void Buying(int x, int number)  // Покупка и продажа ресурсов в порту
         {
             switch(x)
             {
                 case 0:
-                    money = money - 200;
-                    iron = iron + 10;
+                    money = money - (200 * number);
+                    iron = iron + (10 * number);
                     break;
                 case 1:
-                    money = money - 100;
-                    wood = wood + 10;
+                    money = money - (100 * number);
+                    wood = wood + (10 * number);
                     break;
                 case 2:
-                    money = money - 300;
-                    coal = coal + 10;
+                    money = money - (300 * number);
+                    coal = coal + (10 * number);
                     break;
                 case 3:
-                    money = money - 500;
-                    uranium = uranium + 1;
+                    money = money - (500 * number);
+                    uranium = uranium + (1 * number);
                     break;
                 case 4:
-                    money = money - 300;
-                    eat = eat + 10;
+                    money = money - (300 * number);
+                    eat = eat + (10 * number);
                     break;
                 case 5:
-                    money = money + 200;
-                    iron = iron - 10;
+                    money = money + (200 * number);
+                    iron = iron - (10 * number);
                     break;
                 case 6:
-                    money = money + 100;
-                    wood = wood - 10;
+                    money = money + (100 * number);
+                    wood = wood - (10 * number);
                     break;
                 case 7:
-                    money = money + 300;
-                    coal = coal - 10;
+                    money = money + (300 * number);
+                    coal = coal - (10 * number);
                     break;
                 case 8:
-                    money = money + 500;
-                    uranium = uranium - 1;
+                    money = money + (500 * number);
+                    uranium = uranium - (1 * number);
                     break;
                 case 9:
-                    money = money + 300;
-                    eat = eat - 10;
+                    money = money + (300 * number);
+                    eat = eat - (10 * number);
                     break;
             }
 
