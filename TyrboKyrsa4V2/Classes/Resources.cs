@@ -255,7 +255,7 @@ namespace TurboKyrsa4.Forms
             test = true;
             if (iron >= 20)
             {
-                tank = tank + 1;
+                tank = tank + 5;
                 iron = iron - 20;
                 rating = rating - 1;
             }

@@ -241,7 +241,6 @@ namespace TurboKyrsa4.MainClasses
             return b;
         }
      
-
         public bool GetCheck()
         {
             return cheacking;
@@ -256,5 +255,6 @@ namespace TurboKyrsa4.MainClasses
         {
             this.Hide();
         }
+
     }
 }

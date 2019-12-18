@@ -219,9 +219,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(429, 204);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(129, 26);
+            this.label8.Size = new System.Drawing.Size(132, 26);
             this.label8.TabIndex = 15;
-            this.label8.Text = "Рейтинг: +15\r\nКаждый ход +500 монет\r\n";
+            this.label8.Text = "Рейтинг: +15\r\nКаждый ход + 500 монет\r\n";
             // 
             // label9
             // 
@@ -261,9 +261,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(22, 422);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(125, 52);
+            this.label12.Size = new System.Drawing.Size(125, 39);
             this.label12.TabIndex = 19;
-            this.label12.Text = "Рейтинг: -5 за 5 танков\r\nПроизводтво:\r\n  5 танков = 2 хода +\r\n     50 железа";
+            this.label12.Text = "Рейтинг: -5 за 5 танков\r\nПроизводтво:\r\n  5 танков =  50 железа";
             // 
             // label13
             // 
@@ -301,10 +301,10 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(299, 422);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(108, 65);
+            this.label16.Size = new System.Drawing.Size(108, 78);
             this.label16.TabIndex = 23;
-            this.label16.Text = "Рейтинг: -5 за 100 \r\n                      солдат\r\nПроизводтво:\r\n  100 солдат  = " +
-    "150\r\n                      монет";
+            this.label16.Text = "Рейтинг: -5 за 100 \r\n                      солдат\r\nПроизводтво:\r\n  100 солдат  =\r" +
+    "\n       150 монет + \r\n            +10 еды";
             // 
             // label17
             // 
@@ -322,10 +322,10 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(424, 422);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(154, 52);
+            this.label18.Size = new System.Drawing.Size(158, 52);
             this.label18.TabIndex = 25;
-            this.label18.Text = "Рейтинг: -25 за 1 боеголовку\r\nПроизводтво:\r\n  1 боеголовка = 2 хода +\r\n     20 же" +
-    "леза + 10 урана";
+            this.label18.Text = "Рейтинг: -25 за 1 боеголовку\r\nПроизводтво:\r\n  1 боеголовка = 20 железа + \r\n      " +
+    "                    + 10 урана";
             // 
             // button1
             // 
