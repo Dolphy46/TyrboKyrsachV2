@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Ai.cs" />
     <Compile Include="Classes\Dialogs.cs" />
     <Compile Include="Classes\ZoneManager.cs" />
     <Compile Include="Classes\Render.cs" />

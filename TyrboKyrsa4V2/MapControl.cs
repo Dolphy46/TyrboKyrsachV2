@@ -19,6 +19,8 @@ namespace TyrboKyrsa4V2
         bool[,] water;
         int[,] map;
         bool[,] playerzone;
+        bool[,] am;
+        bool[,] du;
         int moves=30;
         int task;
 
@@ -31,6 +33,10 @@ namespace TyrboKyrsa4V2
             im.LoadDef();
             images = im.GetImage();
             zm.Load();
+            zm.LoadAm();
+            zm.LoadDu();
+            am = zm.GetAmZone();
+            du = zm.GetDuZone();
             playerzone = zm.GetZone();
             GenerateButtons();
             label1.Text = "Рейтинг: " + resources.InfoRating().ToString() + "\nБаланс города: " + resources.InfoMoney().ToString();
@@ -51,6 +57,8 @@ namespace TyrboKyrsa4V2
         City city = new City();
         Production production = new Production();
         Resources resources = new Resources();
+        Ai ai = new Ai();
+        DialogResult dr = new DialogResult();
 
         void labelupdate()
         {
@@ -89,7 +97,7 @@ namespace TyrboKyrsa4V2
                         buttons[i, i2].Location = new Point(x,y);
                         buttons[i, i2].FlatAppearance.BorderSize = 0;
                         buttons[i, i2].FlatStyle = FlatStyle.Flat;
-                        buttons[i,i2].MouseEnter += new System.EventHandler(but_Enter);
+                        buttons[i, i2].MouseEnter += new System.EventHandler(but_Enter);
                         buttons[i, i2].MouseLeave += new System.EventHandler(but_Leave);
                         buttons[i, i2].Click += new System.EventHandler(but_click);
                         buttons[i, i2].BackColor = Color.Green;
@@ -104,6 +112,9 @@ namespace TyrboKyrsa4V2
                         buttons[i, i2].can = playerzone[i, i2];
                         buttons[i, i2].map = map[i, i2];
                         buttons[i, i2].build = true;
+                        buttons[i, i2].am = am[i,i2];
+                        buttons[i, i2].ambuild = true;
+                        buttons[i, i2].du = du[i,i2];
                     }
                     x += 162;
                 }
@@ -245,6 +256,28 @@ namespace TyrboKyrsa4V2
                     MessageBox.Show("Не расстраивайтесь!!!\nВы не достигли цели игры.\nОбызательно попробуйте пройти её ещё раз");
                 Application.Exit();
             }
+            if(moves>4)
+               ai.am(buttons,moves,images,water);
+            else
+                switch(task)
+                {
+                    case 90:
+                        if (resources.InfoRating() < 80)
+                            dr = MessageBox.Show("Америка объявляет вам войну! Если у вас по окончанию следующего хода войско будет меньше-вы проиграли.","Война", MessageBoxButtons.YesNo);// Недоделано 
+                        break;
+                    case 10:
+                        if (resources.InfoRating() < 80)
+                            dr = MessageBox.Show("Америка объявляет вам войну! Если у вас по окончанию следующего хода войско будет меньше-вы проиграли.", "Война", MessageBoxButtons.YesNo);
+                        break;
+                    case 50000:
+                        if (resources.InfoRating() < 80)
+                            dr = MessageBox.Show("Америка объявляет вам войну! Если у вас по окончанию следующего хода войско будет меньше-вы проиграли.", "Война", MessageBoxButtons.YesNo);
+                        break;
+                    case 3055:
+                        if (resources.InfoRating() < 80)
+                            dr = MessageBox.Show("Америка объявляет вам войну! Если у вас по окончанию следующего хода войско будет меньше-вы проиграли.", "Война", MessageBoxButtons.YesNo);
+                        break;
+                }
         }
     }
 }

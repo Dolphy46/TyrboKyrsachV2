@@ -12,5 +12,8 @@ namespace TyrboKyrsa4V2.Classes
         public bool can;
         public int map;
         public bool build;
+        public bool am;
+        public bool du;
+        public bool ambuild;
     }
 }

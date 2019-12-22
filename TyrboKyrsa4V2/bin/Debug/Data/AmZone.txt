@@ -1,0 +1,16 @@
+AmZone 15 7
+False False False True False False False 
+False False False False False False False 
+False False True True True False False 
+False False False False True False False 
+False False True True False False False 
+False False False False True False False 
+False False False False True False False 
+False False False False True True True 
+False False False False True False False 
+False False False False False False False 
+False False False False False False False 
+False False False False False False False 
+False False False False False False False 
+False False False False False False False 
+False False False False False False False 
