@@ -23,7 +23,7 @@ namespace TyrboKyrsa4V2
         bool[,] du;
         int moves=30;
         int task;
-
+        bool z = true, l = true;
         public MapControl()
         {
             InitializeComponent();
@@ -57,7 +57,6 @@ namespace TyrboKyrsa4V2
         City city = new City();
         Production production = new Production();
         Resources resources = new Resources();
-        Ai ai = new Ai();
         DialogResult dr = new DialogResult();
 
         void labelupdate()
@@ -185,7 +184,7 @@ namespace TyrboKyrsa4V2
                         construction.SetCheck();
                     }
                     else
-                        MessageBox.Show("Это не ваша територия!");
+                        MessageBox.Show("Это не ваша территория!");
                 }
             }
             else
@@ -224,59 +223,61 @@ namespace TyrboKyrsa4V2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dialogs.InfoResources(resources); //каждый ход передает экзепляр класса Resources в класс Dialogs
-            if (moves == 30)
-            {
-                dialogs.Conference();
-                if (dialogs.InfoConference() == true)
-                    moves--;
-            }
-
-            if (moves != 1)
-            {
-                resources.SetMoney();
-                if (resources.numberMine > 0)
-                    resources.PlusMine();
-                if (resources.numberSawmill > 0)
-                    resources.PlusSwamill();
-                if (resources.numberFarm > 0)
-                    resources.PlusFarm();
-                labelupdate();
-                moves--;
-                dialogs.TestDualog(moves);
-                labelupdate();
-            }
-            else
-            {
-                moves--;
-                labelupdate();
-                if (TaskExecution())
-                    MessageBox.Show("Поздравляем!!!\nВы достигли цели игры.\n Спасибо большое за игру. Дотвиданиня!");
-                else
-                    MessageBox.Show("Не расстраивайтесь!!!\nВы не достигли цели игры.\nОбызательно попробуйте пройти её ещё раз");
-                Application.Exit();
-            }
-            if(moves>4)
-               ai.am(buttons,moves,images,water);
-            else
-                switch(task)
+                dialogs.InfoResources(resources); //каждый ход передает экзепляр класса Resources в класс Dialogs
+                if (moves == 30)
                 {
-                    case 90:
-                        if (resources.InfoRating() < 80)
-                            dr = MessageBox.Show("Америка объявляет вам войну! Если у вас по окончанию следующего хода войско будет меньше-вы проиграли.","Война", MessageBoxButtons.YesNo);// Недоделано 
-                        break;
-                    case 10:
-                        if (resources.InfoRating() < 80)
-                            dr = MessageBox.Show("Америка объявляет вам войну! Если у вас по окончанию следующего хода войско будет меньше-вы проиграли.", "Война", MessageBoxButtons.YesNo);
-                        break;
-                    case 50000:
-                        if (resources.InfoRating() < 80)
-                            dr = MessageBox.Show("Америка объявляет вам войну! Если у вас по окончанию следующего хода войско будет меньше-вы проиграли.", "Война", MessageBoxButtons.YesNo);
-                        break;
-                    case 3055:
-                        if (resources.InfoRating() < 80)
-                            dr = MessageBox.Show("Америка объявляет вам войну! Если у вас по окончанию следующего хода войско будет меньше-вы проиграли.", "Война", MessageBoxButtons.YesNo);
-                        break;
+                    dialogs.Conference();
+                    if (dialogs.InfoConference() == true)
+                        moves--;
+                }
+
+                if (moves != 1)
+                {
+                    resources.SetMoney();
+                    if (resources.numberMine > 0)
+                        resources.PlusMine();
+                    if (resources.numberSawmill > 0)
+                        resources.PlusSwamill();
+                    if (resources.numberFarm > 0)
+                        resources.PlusFarm();
+                    if (resources.InfoRating() >= 100)
+                        resources.OneHundredRating();
+                    labelupdate();
+                    moves--;
+                    dialogs.TestDualog(moves);
+                if (resources.numberPlant > 2 && z == true)
+                {
+                    dialogs.Heat();
+                    z = false;
+                }
+                if (resources.numberSawmill > 2 && l == true)
+                {
+                    dialogs.LittleO2();
+                    l = false;
+                }
+                if (resources.epidemic == true)
+                {
+                    moves--;
+                    resources.epidemic = false;
+                }
+                    if (resources.InfoRating() >= 100)
+                        resources.OneHundredRating();
+                    labelupdate();
+                    if (resources.InfoRating() <= 0)
+                    {
+                        MessageBox.Show("Ваш рейтинг достиг нуля. Вы проиграли.");
+                        Application.Exit();
+                    }
+                }
+                else
+                {
+                    moves--;
+                    labelupdate();
+                    if (TaskExecution())
+                        MessageBox.Show("Поздравляем!!!\nВы достигли цели игры.\n Спасибо большое за игру. Дотвиданиня!");
+                    else
+                        MessageBox.Show("Не расстраивайтесь!!!\nВы не достигли цели игры.\nОбызательно попробуйте пройти её ещё раз");
+                    Application.Exit();
                 }
         }
     }

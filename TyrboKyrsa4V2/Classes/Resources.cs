@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace TurboKyrsa4.Forms
 {
     public class Resources
@@ -29,7 +24,6 @@ namespace TurboKyrsa4.Forms
         private int men = 0; // количество солдат
         private int warhead = 0; // колчество боеголовок
 
-
         public int park = 0;
         public int shop = 0;
         public int temple = 0;
@@ -41,6 +35,11 @@ namespace TurboKyrsa4.Forms
         public int InfoRating()
         {
             return rating;
+        }
+
+        public void OneHundredRating()
+        {
+            rating = 100;
         }
 
         public int InfoResources(int x)
@@ -257,7 +256,7 @@ namespace TurboKyrsa4.Forms
             {
                 tank = tank + 5;
                 iron = iron - 20;
-                rating = rating - 1;
+                rating = rating - 5;
             }
             else
                 test = false;
@@ -288,7 +287,7 @@ namespace TurboKyrsa4.Forms
                 warhead = warhead + 1;
                 iron = iron - 20;
                 uranium = uranium - 10;
-                rating = rating - 25;
+                rating = rating - 10;
             }
             else
                 test = false;

@@ -324,7 +324,7 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(158, 52);
             this.label18.TabIndex = 25;
-            this.label18.Text = "Рейтинг: -25 за 1 боеголовку\r\nПроизводтво:\r\n  1 боеголовка = 20 железа + \r\n      " +
+            this.label18.Text = "Рейтинг: -10 за 1 боеголовку\r\nПроизводтво:\r\n  1 боеголовка = 20 железа + \r\n      " +
     "                    + 10 урана";
             // 
             // button1

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TurboKyrsa4.Forms;
 
@@ -38,7 +34,6 @@ namespace TurboKyrsa4.MainClasses
                 ConferenceEpidemic();
                 if (resources.epidemic)
                 {
-                    x = x - 2;
                     resources.SetMoney();
                     resources.SetMoney();
                 }

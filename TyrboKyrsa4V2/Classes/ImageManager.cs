@@ -11,6 +11,7 @@ namespace TyrboKyrsa4V2
     class ImageManager
     {
         Image[] images;
+
         public void LoadDef()
         {
             string filename = "data/Cells.txt";
