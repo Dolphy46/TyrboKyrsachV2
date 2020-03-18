@@ -21,10 +21,10 @@ namespace TyrboKyrsa4V2.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            number = 8;
-            resources.SetNumberResours(number);
-            if (resources.InfoTest())
+            if (resources.InfoMoney() >= 300)
             {
+                resources.park++;
+                resources.Buying(300, 1);
                 button1.Enabled = false;
                 label1.Text = "Количество построек: \nПарк: " + resources.park + "\nТорговый центр: " + resources.shop +
                     "\nЦерковь: " + resources.temple;
@@ -39,10 +39,10 @@ namespace TyrboKyrsa4V2.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            number = 9;
-            resources.SetNumberResours(number);
-            if (resources.InfoTest())
+            if (resources.InfoMoney() >= 1500)
             {
+                resources.shop++;
+                resources.Buying(1500, 1);
                 if (resources.shop == 3)
                 {
                     button2.Enabled = false;
@@ -60,14 +60,14 @@ namespace TyrboKyrsa4V2.Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
-            number = 10;
-            resources.SetNumberResours(number);
-            if (resources.InfoTest())
+            if(resources.InfoMoney() >= 2000)
             {
+                resources.temple++;
+                resources.Buying(2000, 1);
                 button3.Enabled = false;
                 label1.Text = "Количество построек: \nПарк: " + resources.park + "\nТорговый центр: " + resources.shop +
                     "\nЦерковь: " + resources.temple;
-                label20.Text = "К постройке больше недоступен";
+                label24.Text = "К постройке больше недоступен";
             }
             else
             {

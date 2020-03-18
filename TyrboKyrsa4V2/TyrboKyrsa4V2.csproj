@@ -46,7 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Casern.cs" />
+    <Compile Include="Classes\Coal.cs" />
     <Compile Include="Classes\Dialogs.cs" />
+    <Compile Include="Classes\Eat.cs" />
+    <Compile Include="Classes\Facilities.cs" />
+    <Compile Include="Classes\Farm.cs" />
+    <Compile Include="Classes\Iron.cs" />
+    <Compile Include="Classes\Laboratory.cs" />
+    <Compile Include="Classes\Mine.cs" />
+    <Compile Include="Classes\Plant.cs" />
+    <Compile Include="Classes\Port.cs" />
+    <Compile Include="Classes\REsourses.cs" />
+    <Compile Include="Classes\Swamill.cs" />
+    <Compile Include="Classes\Uranium.cs" />
+    <Compile Include="Classes\Windturbine.cs" />
+    <Compile Include="Classes\Wood.cs" />
     <Compile Include="Classes\ZoneManager.cs" />
     <Compile Include="Classes\Render.cs" />
     <Compile Include="Classes\Resources.cs" />

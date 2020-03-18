@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using TurboKyrsa4.Forms;
+using TyrboKyrsa4V2.Classes;
 
 namespace TyrboKyrsa4V2.Forms
 {
@@ -72,144 +73,72 @@ namespace TyrboKyrsa4V2.Forms
             resources = r;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void Buying(int i, int n)
         {
-            if (resources.InfoMoney() >= 200 * trackBar2.Value)
-            {
-                resources.Buying(0, trackBar2.Value);
-                this.Close();
-            }
+            if (resources.rEsourses[i].Buying(resources.InfoMoney(), n))
+                resources.Buying(n, resources.rEsourses[i].cost);
             else
-            {
-                MessageBox.Show("У вас недостаточно монет для покупки.\nТребуется " + (200 * trackBar2.Value) + " монет.");
-                this.Close();
-            }
+                MessageBox.Show("У вас недостаточно монет для покупки.\nТребуется " + (resources.rEsourses[i].cost * n) + " монет.");
+            this.Close();
         }
 
+        public void Sale(int i, int n)
+        {
+            if (resources.rEsourses[i].Sale(n))
+                resources.Sale(n, resources.rEsourses[i].cost);
+            else
+                MessageBox.Show("У вас недостаточно железа для продажи.\nПроверти количество ресурса.");
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Buying(0, trackBar2.Value);
+        }
+    
         private void button2_Click(object sender, EventArgs e)
         {
-            if (resources.InfoMoney() >= 100 * trackBar3.Value)
-            { 
-                resources.Buying(1, trackBar3.Value);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("У вас недостаточно монет для покупки.\nТребуется " + (100 * trackBar3.Value) + " монет.");
-                this.Close();
-            }
+            Buying(2, trackBar3.Value);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (resources.InfoMoney() >= 300 * trackBar4.Value)
-            { 
-                resources.Buying(2, trackBar4.Value);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("У вас недостаточно монет для покупки.\nТребуется " + (300 * trackBar4.Value) + " монет.");
-                this.Close();
-            }
+            Buying(1, trackBar4.Value);
         }
 
-        private void button5_Click(object sender, EventArgs e)
+            private void button5_Click(object sender, EventArgs e)
         {
-            if (resources.InfoMoney() >= 500 * trackBar5.Value)
-            { 
-                resources.Buying(3, trackBar5.Value);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("У вас недостаточно монет для покупки.\nТребуется " + (500 * trackBar5.Value) + " монет.");
-                this.Close();
-            }
+            Buying(3, trackBar5.Value);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (resources.InfoMoney() >= 300 * trackBar6.Value)
-            { 
-                resources.Buying(4, trackBar6.Value);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("У вас недостаточно монет для покупки.\nТребуется " + (300 * trackBar6.Value) + " монет.");
-                this.Close();
-            }
+            Buying(4, trackBar6.Value);
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (resources.InfoResources(0) >= 10 * trackBar1.Value)
-            { 
-                resources.Buying(5, trackBar1.Value);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("У вас недостаточно железа для продажи.\nТребуется " + (10 * trackBar1.Value) + " железа.");
-                this.Close();
-            }
+            Sale(0, trackBar1.Value);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (resources.InfoResources(1) >= 10 * trackBar7.Value)
-            { 
-                resources.Buying(6, trackBar7.Value);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("У вас недостаточно древесины для продажи.\nТребуется " + (10 * trackBar7.Value) + " дерева.");
-                this.Close();
-            }
+            Sale(2, trackBar7.Value);
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if (resources.InfoResources(2) >= 10 * trackBar8.Value)
-            { 
-                resources.Buying(7, trackBar8.Value);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("У вас недостаточно угля для продажи.\nТребуется " + (10 * trackBar8.Value) + " угля.");
-                this.Close();
-            }
+            Sale(1, trackBar8.Value);
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            if (resources.InfoResources(3) >= 1 * trackBar9.Value)
-            { 
-                resources.Buying(8, trackBar9.Value);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("У вас недостаточно урана для продажи.\nТребуется " + (1 * trackBar9.Value) + " урана.");
-                this.Close();
-            }
+            Sale(3, trackBar9.Value);
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            if (resources.InfoResources(4) >= 10 * trackBar10.Value)
-            { 
-                resources.Buying(9, trackBar10.Value);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("У вас недостаточно еды для продажи.\nТребуется " + (10 * trackBar10.Value) + " еды.");
-                this.Close();
-            }
+            Sale(4, trackBar10.Value);
         }
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
@@ -239,7 +168,7 @@ namespace TyrboKyrsa4V2.Forms
 
         private void trackBar6_ValueChanged(object sender, EventArgs e)
         {
-            button6.Text = (10 * trackBar5.Value) + " еды = " + (300 * trackBar5.Value) + " монет";
+            button6.Text = (10 * trackBar6.Value) + " еды = " + (300 * trackBar6.Value) + " монет";
         }
 
         private void trackBar7_ValueChanged(object sender, EventArgs e)

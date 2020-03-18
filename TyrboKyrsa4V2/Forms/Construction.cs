@@ -186,31 +186,23 @@ namespace TurboKyrsa4.MainClasses
             number = 7;
             Picter(number);
         }
-
-
+        
         int bilding;
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (resources.port == true && number == 3)
+            if(resources.SetNumberResours(number))
             {
-                MessageBox.Show("Можно построить всего один порт за игру.");
+                bilding = number + 25;
+                cheacking = true;
             }
             else
-            {
-                resources.SetNumberResours(number);
-                if (resources.InfoTest() == true)
-                {
-                    bilding = number + 25;
-                    cheacking = true;
-                    this.Hide();
-                }
+                if(number == 3 && resources.facilities[3].number == 1)
+                  MessageBox.Show("Можно построить всего один порт за игру.");
                 else
-                {
-                    MessageBox.Show("У вас недостаточно монет или ресурсов.\n                   Проверте свой баланс.");
-                    this.Hide();
-                }
-            }
+                  MessageBox.Show("У вас недостаточно монет или ресурсов.\n                   Проверте свой баланс.");
+                this.Hide();
+         
         }
 
         private void pictureBox7_MouseMove(object sender, MouseEventArgs e)

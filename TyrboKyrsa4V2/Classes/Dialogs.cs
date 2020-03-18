@@ -60,7 +60,7 @@ namespace TurboKyrsa4.MainClasses
                 ConferenceSpy();
             }
 
-            if (x == 10 && resources.port == false)
+            if (x == 10 && resources.facilities[3].number == 0)
             {
                 ConferencePort();
                 fport = true;
@@ -93,10 +93,10 @@ namespace TurboKyrsa4.MainClasses
             if (x == 0)
                 s = "железа";
             else
-                 if (x == 1)
+                 if (x == 2)
                 s = "дерева";
             else
-                 if (x == 2)
+                 if (x == 1)
                 s = "угля";
             else
                if (x == 3)

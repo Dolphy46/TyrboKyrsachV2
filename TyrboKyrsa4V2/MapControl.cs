@@ -39,6 +39,21 @@ namespace TyrboKyrsa4V2
             du = zm.GetDuZone();
             playerzone = zm.GetZone();
             GenerateButtons();
+
+            resources.rEsourses[0]= new Iron();
+            resources.rEsourses[1] = new Coal();
+            resources.rEsourses[2] = new Wood();
+            resources.rEsourses[3] = new Uranium();
+            resources.rEsourses[4] = new Eat();
+            resources.facilities[0] = new Mine(2000);
+            resources.facilities[1] = new Swamill(2000);
+            resources.facilities[2] = new Farm(2000);
+            resources.facilities[3] = new POrt(5000, 30, 25, 40);
+            resources.facilities[4] = new Plant(3000, 20, 15, 30);
+            resources.facilities[5] = new Windturbine(3000, 20, 0, 10);
+            resources.facilities[6] = new Casern(3000, 50, 20, 60);
+            resources.facilities[7] = new Laboratory(10000, 10, 10, 15);
+
             label1.Text = "Рейтинг: " + resources.InfoRating().ToString() + "\nБаланс города: " + resources.InfoMoney().ToString();
             label2.Text = resources.GetLabel2();
             label3.Text = resources.GetLabel3();
@@ -220,7 +235,6 @@ namespace TyrboKyrsa4V2
             return false;
         }
 
-
         private void button1_Click(object sender, EventArgs e)
         {
                 dialogs.InfoResources(resources); //каждый ход передает экзепляр класса Resources в класс Dialogs
@@ -234,23 +248,42 @@ namespace TyrboKyrsa4V2
                 if (moves != 1)
                 {
                     resources.SetMoney();
-                    if (resources.numberMine > 0)
-                        resources.PlusMine();
-                    if (resources.numberSawmill > 0)
-                        resources.PlusSwamill();
-                    if (resources.numberFarm > 0)
-                        resources.PlusFarm();
+
+                    if (resources.facilities[0].number > 0)
+                    {
+                        int[] a = new int[3];
+                        Mine mine = (Mine)resources.facilities[0];
+                        a = mine.Plus(resources.rEsourses[0].number, resources.rEsourses[1].number, resources.rEsourses[3].number);
+                        resources.rEsourses[0].number = a[0];
+                        resources.rEsourses[1].number = a[1];
+                        resources.rEsourses[3].number = a[2];
+                    }
+
+                    if (resources.facilities[1].number > 0)
+                    {
+                        Swamill swamill = (Swamill)resources.facilities[1];
+                        int a = swamill.Plus(resources.rEsourses[2].number);
+                        resources.rEsourses[2].number = a;
+                    }
+
+                    if (resources.facilities[2].number > 0)
+                    {
+                        Farm farm = (Farm)resources.facilities[2];
+                        int a = farm.Plus(resources.rEsourses[4].number);
+                        resources.rEsourses[4].number = a;
+                    }
+
                     if (resources.InfoRating() >= 100)
                         resources.OneHundredRating();
                     labelupdate();
                     moves--;
                     dialogs.TestDualog(moves);
-                if (resources.numberPlant > 2 && z == true)
+                if (resources.facilities[4].number > 2 && z == true)
                 {
                     dialogs.Heat();
                     z = false;
                 }
-                if (resources.numberSawmill > 2 && l == true)
+                if (resources.facilities[1].number > 2 && l == true)
                 {
                     dialogs.LittleO2();
                     l = false;

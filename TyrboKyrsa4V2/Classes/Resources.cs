@@ -1,4 +1,6 @@
 ﻿using System;
+using TyrboKyrsa4V2.Classes;
+
 namespace TurboKyrsa4.Forms
 {
     public class Resources
@@ -6,20 +8,9 @@ namespace TurboKyrsa4.Forms
         private int rating = 50; //Рейтинг
         private int money = 10000; //ДЕНЬГИ
 
-        public int numberMine = 0; //количество шахт
-        public int numberSawmill = 0; //количество лесопилок
-        public int numberFarm = 0; // количество ферм
-        public bool port = false; // наличие порта
-        public int numberPlant = 0; // количество заводов
-        public int numberWindturbine = 0; // количество ветряков
-        public int numberCasern = 0; // количество казарм
-        public int numberLaboratory = 0; // количество лабораторий
+        public REsourses[] rEsourses = new REsourses[8];
+        public Facilities[] facilities = new Facilities[8];
 
-        private int iron = 0; // количество железа
-        private int coal = 0; //количество угля
-        private int wood = 0; // количество древесины
-        private int uranium = 0; // количество урана
-        private int eat = 0; // количество еды
         private int tank = 0; // количество танков
         private int men = 0; // количество солдат
         private int warhead = 0; // колчество боеголовок
@@ -42,14 +33,19 @@ namespace TurboKyrsa4.Forms
             rating = 100;
         }
 
+        public bool InfoTest()
+        {
+            return test;
+        }
+
         public int InfoResources(int x)
         {
             int[] info = new int[8];
-            info[0] = iron;
-            info[1] = wood;
-            info[2] = coal;
-            info[3] = uranium;
-            info[4] = eat;
+            info[0] = rEsourses[0].number;
+            info[1] = rEsourses[2].number;
+            info[2] = rEsourses[1].number;
+            info[3] = rEsourses[3].number;
+            info[4] = rEsourses[4].number;
             info[5] = men;
             info[6] = tank;
             info[7] = warhead;
@@ -62,11 +58,6 @@ namespace TurboKyrsa4.Forms
             return money;
         }
 
-        public bool InfoTest()
-        {
-            return test;
-        }
-
         public void SetMoney() // каждый ход +1000 монет
         {
             money = money + 1000;
@@ -77,139 +68,43 @@ namespace TurboKyrsa4.Forms
                 money = money + 100 * shop;
             if (temple > 0)
                 money = money + 300;
-            if (numberWindturbine > 0)
-                money = money + 150 * numberWindturbine;
+            if (facilities[5].number > 0)
+                money = money + 150 * facilities[5].number;
         }
 
-        public void SetNumberResours(int i)
+        public void MinusRes(int m, int iron, int coal, int wood )
         {
-            test = true;
-            switch (i)
-            {
-                case 0:
-                    if (money >= 2000)
-                    {
-                        numberMine++;
-                        money = money - 2000;
-                    }
-                    else
-                        test = false;
-                    break;
-                case 1:
-                    if (money >= 2000)
-                    {
-                        numberSawmill++;
-                        money = money - 2000;
-                    }
-                    else
-                        test = false;
-                    break;
-                case 2:
-                    if (money >= 2000)
-                    {
-                        numberFarm++;
-                        money = money - 2000;
-                    }
-                    else
-                        test = false;
-                    break;
-                case 3:
-                    if (money >= 5000 && iron >= 30 && coal >= 25 && wood >= 40)
-                    {
-                        iron = iron - 30;
-                        coal = coal - 25;
-                        wood = wood - 40;
-                        port = true;
-                        money = money - 5000;
-                        rating = rating + 15;
-                    }
-                    else
-                        test = false;
-                    break;
-                case 4:
-                    if (money >= 3000 && iron >= 15 && coal >= 20 && wood >= 30)
-                    {
-                        iron = iron - 15;
-                        coal = coal - 20;
-                        wood = wood - 30;
-                        numberPlant++;
-                        money = money - 3000;
-                    }
-                    else
-                        test = false;
-                    break;
-                case 5:
-                    if (money >= 3000 && iron >= 20 && wood >= 10)
-                    {
-                        iron = iron - 20;
-                        wood = wood - 10;
-                        numberWindturbine++;
-                        money = money - 3000;
-                        rating = rating + 5;
-                    }                   
-                    else
-                        test = false;
+            money = money - m;
+            rEsourses[0].number = rEsourses[0].number - iron;
+            if(m == 10000)
+                rEsourses[3].number = rEsourses[3].number - coal;
+            else
+               rEsourses[1].number = rEsourses[1].number - coal;
+            rEsourses[2].number = rEsourses[2].number - wood;
+        }
 
-                    break;
-                case 6:
-                    if (money >= 3000 && iron >= 50 && coal >= 20 && wood >= 60)
-                    {
-                        iron = iron - 50;
-                        coal = coal - 20;
-                        wood = wood - 60;
-                        numberCasern++;
-                        money = money - 3000;
-                    }
-                    else
-                        test = false;
-                        break;
-                case 7:
-                    if (money >= 10000 && iron >= 30 && uranium >= 10 && wood >= 15)
-                    {
-                        iron = iron - 30;
-                        wood = wood - 15;
-                        uranium = uranium - 10;
-                        numberLaboratory++;
-                        money = money - 10000;
-                    }    
-                    else
-                        test = false;
-                    break;
-                case 8:
-                    if (money >=300)
-                    {
-                        park++;
-                        money = money - 300;
-                    }
-                    else
-                        test = false;
-                    break;
-                case 9:
-                    if (money >= 1500)
-                    {
-                        shop++;
-                        money = money - 1500;
-                    }
-                    else
-                        test = false;
-                    break;
-                case 10:
-                    if (money >= 2000)
-                    {
-                        temple++;
-                        money = money - 2000;
-                    }
-                    else
-                        test = false;
-                    break;
+        public bool SetNumberResours(int i)
+        {
+            if(i == 7)
+                facilities[i].InfoRes(rEsourses[0].number, rEsourses[1].number, rEsourses[3].number);
+            else
+            if (i > 2)
+                facilities[i].InfoRes(rEsourses[0].number, rEsourses[1].number, rEsourses[2].number);
+            if (facilities[i].Build(money))
+            {
+                MinusRes(facilities[i].cost[0], facilities[i].cost[1], facilities[i].cost[2], facilities[i].cost[3]);
+                if(i == 3 || i == 5)
+                    rating = rating + 15;
+                return true;
             }
+            else return false;
         }
 
         public string GetLabel2()
         {
             string str = "";
-            str = "Ресурсы: " + "\nЖелезо: " + iron + "\nУголь: " + coal + "\nУран: " + uranium + "\nДерево: " + wood +
-                "\nЕда: " + eat + "\nТанк: " + tank + "\nСолдаты: " + men + "\nБоеголовка: " + warhead;
+            str = "Ресурсы: " + "\nЖелезо: " + rEsourses[0].number + "\nУголь: " + rEsourses[1].number + "\nУран: " + rEsourses[3].number + "\nДерево: " + rEsourses[2].number +
+                "\nЕда: " + rEsourses[4].number + "\nТанк: " + tank + "\nСолдаты: " + men + "\nБоеголовка: " + warhead;
             return str;
         }
 
@@ -217,45 +112,20 @@ namespace TurboKyrsa4.Forms
         public string GetLabel3()
         {
             string str = "";
-            str = "Количество построек: " + "\nШахты: " + numberMine + "\nЛесопилки: " + numberSawmill + "\nФермы: " + numberFarm + "\nЗаводы: " +
-                numberPlant + "\nВетряки: " + numberWindturbine + "\nКазармы: " + numberCasern + "\nЛаборатории: " + numberLaboratory;
-            if (port == true)
+            str = "Количество построек: " + "\nШахты: " + facilities[0].number + "\nЛесопилки: " + facilities[1].number + "\nФермы: " + facilities[2].number + "\nЗаводы: " +
+                facilities[4].number + "\nВетряки: " + facilities[5].number + "\nКазармы: " + facilities[6].number + "\nЛаборатории: " + facilities[7].number;
+            if (facilities[3].number == 1)
                 str = str + "\nПорт: построен";
             return str;
         }
             
-
-        Random random = new Random();
-
-        public void PlusMine() // определяет сколько в шахте добывается ресурсов за ход
-        {
-            for (int i = 0; i < numberMine; i++)
-            {
-                iron = iron + random.Next(5, 30);
-                coal = coal + random.Next(5, 15);
-                uranium = uranium + random.Next(0, 4);
-            }
-        }
-
-        public void PlusSwamill() //определяет сколько в лесопилки добывается ресурсов за ход
-        {
-            for(int i = 0; i < numberSawmill; i++)
-            wood = wood + random.Next(5, 15);
-        }
-
-        public void PlusFarm() //определяет сколько на ферме добывается ресурсов за ход
-        {
-            for(int i = 0; i < numberFarm; i++)
-            eat = eat + random.Next(5, 10);
-        }
-
         public void MotionTank() //совершает производство такнков
         {
             test = true;
-            if (iron >= 20)
+            if (rEsourses[0].number >= 20)
             {
                 tank = tank + 5;
-                iron = iron - 20;
+                rEsourses[0].number = rEsourses[0].number - 20;
                 rating = rating - 5;
             }
             else
@@ -266,11 +136,11 @@ namespace TurboKyrsa4.Forms
         public void MotionMen() //совершает производство солдат
         {
             test = true;
-            if (eat >= 10 && money >=150)
+            if (rEsourses[4].number >= 10 && money >=150)
             {
                 men = men + 100;
                 money = money - 150;
-                eat = eat - 10;
+                rEsourses[4].number = rEsourses[4].number - 10;
                 rating = rating - 5;
             }
             else
@@ -278,67 +148,28 @@ namespace TurboKyrsa4.Forms
 
         }
 
-
         public void MotionWarhead() //совершает производство боеголовок
         {
             test = true;
-            if (uranium >= 10 && iron >= 20)
+            if (rEsourses[3].number >= 10 && rEsourses[0].number >= 20)
             {
                 warhead = warhead + 1;
-                iron = iron - 20;
-                uranium = uranium - 10;
+                rEsourses[0].number = rEsourses[0].number - 20;
+                rEsourses[3].number = rEsourses[3].number - 10;
                 rating = rating - 10;
             }
             else
                 test = false;
         }
 
-        public void Buying(int x, int number)  // Покупка и продажа ресурсов в порту
+        public void Buying(int price, int number)  // Покупка и продажа ресурсов в порту
         {
-            switch(x)
-            {
-                case 0:
-                    money = money - (200 * number);
-                    iron = iron + (10 * number);
-                    break;
-                case 1:
-                    money = money - (100 * number);
-                    wood = wood + (10 * number);
-                    break;
-                case 2:
-                    money = money - (300 * number);
-                    coal = coal + (10 * number);
-                    break;
-                case 3:
-                    money = money - (500 * number);
-                    uranium = uranium + (1 * number);
-                    break;
-                case 4:
-                    money = money - (300 * number);
-                    eat = eat + (10 * number);
-                    break;
-                case 5:
-                    money = money + (200 * number);
-                    iron = iron - (10 * number);
-                    break;
-                case 6:
-                    money = money + (100 * number);
-                    wood = wood - (10 * number);
-                    break;
-                case 7:
-                    money = money + (300 * number);
-                    coal = coal - (10 * number);
-                    break;
-                case 8:
-                    money = money + (500 * number);
-                    uranium = uranium - (1 * number);
-                    break;
-                case 9:
-                    money = money + (300 * number);
-                    eat = eat - (10 * number);
-                    break;
-            }
+            money = money - (price * number);
+        }
 
+        public void Sale(int x, int cost)  // Покупка и продажа ресурсов в порту
+        {
+            money = money + (x * cost);
         }
 
         public void Conference(bool f, int x) //изменение рейтинга по средствам диалогов 
@@ -349,52 +180,19 @@ namespace TurboKyrsa4.Forms
                 rating = rating - x;
         }
 
-        public void HelpResources(int x, int x1) // помощь ресурсами странам
+        public void HelpResources(int res, int x1) // помощь ресурсами странам
         {
             test = true;
-            switch (x)
-            {
-                case 0:
-                    if (iron >= x1)
-                        iron = iron - x1;
-                    else
-                        test = false;
-                    break;
-
-                case 1:
-                    if (wood >= x1)
-                        wood = wood - x1;
-                    else
-                        test = false;
-                    break;
-
-                case 2:
-                    if (coal >= x1)
-                        coal = coal - x1;
-                    else
-                        test = false;
-                    break;
-
-                case 3:
-                    if (uranium >= x1)
-                        uranium = uranium - x1;
-                    else
-                        test = false;
-                    break;
-
-                case 4:
-                    if (eat >= x1)
-                        eat = eat - x1;
-                    else
-                        test = false;
-                    break;
-                case 5:
-                    if (money >= x1)
-                        money = money - x1;
-                    else
-                        test = false;
-                    break;
-            }
+            if (res == 5)
+                if (money >= x1)
+                    money = money - x1;
+                else
+                    test = false;
+            else
+                if (rEsourses[res].number >= x1)
+                   rEsourses[res].number = rEsourses[res].number - x1;
+                else
+                   test = false;
         }
 
         public void HelpNature(int x)
@@ -421,7 +219,7 @@ namespace TurboKyrsa4.Forms
         public bool PortTest() //Конференция: порт 
         {
             bool porttest;
-            if (port == true)
+            if (facilities[3].number == 1)
             {
                 porttest = true;
             }
@@ -431,7 +229,5 @@ namespace TurboKyrsa4.Forms
             }
             return porttest;
         }
-
-        
     }
 }
